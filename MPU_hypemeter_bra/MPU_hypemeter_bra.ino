@@ -4,15 +4,15 @@
 #include <FastLED.h>
 #define LED_PIN 15
 #define NUM_LEDS 10
-#define led 2 //Gir pin 2 navnet led.
+//#define led 2
 
 CRGB leds[NUM_LEDS];
-
-
 Adafruit_MPU6050 mpu;
+float hype;
+float biggestHype = 0;
 
 void setup(void) {
-  pinMode(led,OUTPUT);
+  //pinMode(led,OUTPUT);
   Serial.begin(115200);
   while (!Serial)
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
@@ -49,16 +49,13 @@ void loop() {
   /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
-  float hype = getHype(a);
+  hype = getHype(a);
+  if (hype > biggestHype) {
+    biggestHype = hype;
+  }
+  biggestHype;
   
-  /*if (hype > 18){
-    digitalWrite(led,HIGH); //sender ut signalet "høy" til pin 2(led), LED-lyset vil da lyse.
-  } else {
-     digitalWrite(led,LOW); //sender ut signalet "lav" til pin 2 (led), LED-lyset blir skrudd av.
-  }*/
-
-
-  FastLED.setBrightness((hype)*3);
+  FastLED.setBrightness(hype*255/biggestHype);
   FastLED.show();
   
   /* Print out the values */
