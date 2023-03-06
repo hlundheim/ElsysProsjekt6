@@ -32,111 +32,42 @@ $row  = mysqli_fetch_assoc($result);
 
 ?>
 
-<style>
-	.wrapper{
-		width: 100%;
-		padding-top: 50px;
-	}
-	.col_3{
-		width: 33.3333333%;
-		float: left;
-		min-height: 1px;
-	}
-	#submit_button{
-		background-color: #2bbaff; 
-		color: #FFF; 
-		font-weight: bold; 
-		font-size: 40; 
-		border-radius: 15px;
-    	text-align: center;
-	}
-	.led_img{
-		height: 400px;		
-		width: 100%;
-		object-fit: cover;
-		object-position: center;
-	}
-	
-	@media only screen and (max-width: 600px) {
-		.col_3 {
-			width: 100%;
-		}
-		.wrapper{
-			width: 100%;
-			padding-top: 5px;
-		}
-		.led_img{
-			height: 300px;		
-			width: 80%;
-			margin-right: 10%;
-			margin-left: 10%;
-			object-fit: cover;
-			object-position: center;
-		}
-	}
-
-</style>
-
-
 <html>
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-	<div class="wrapper" id="refresh">
-		<div class="col_3">
-		</div>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="cssfiler/admin.css">-->
+        <?php include("style.php")?>
+        <?php include("index-style.php")?>
+    </head>
+    <body>
+        <header>
+            <section class="gridcontainer">
+				<section class="gridelement">
+						<?php echo '<a href="index.php">
+							<h1>OHANA</h1>
+						</a>';?>
+				</section>
+				<section class="gridelement">
+						<nav>
+							<?php echo '<a href="index.php">Hjem</a>';?>
+							<?php echo '<a href="stemme.php">Stemme</a>';?>
+							<?php echo '<a href="minside.php">Min Side</a>';?>
+							<?php echo '<a href="admin.php">Admin</a>';?>
+						</nav>
+					</section>
+			</section>
+        </header>
+        <main>
+            <section>
+                <img id="forside" src="https://gfx.nrk.no/qSeb9K7ydZWQrLgY45w_rwdXUl171OjJ3CM_QVTxhJhg" alt="">
+                <?php echo '<a class="bildetekst" href="minside.php">LOGG INN</a>';?>
+            </section>
 
-		<div class="col_3" >
-			
-			<?php echo '<h1 style="text-align: center;">The status of the LED is: '.$row['status'].'</h1>';?>
-			
-			<div class="col_3">
-			</div>
-			
-			<div class="col_3" style="text-align: center;">
-			<form action="index.php" method="post" id="LED" enctype="multipart/form-data">			
-				<input id="submit_button" type="submit" name="toggle_LED" value="Toggle LED" />
-			</form>
-				
-			<script type="text/javascript">
-			$(document).ready (function () {
-				var updater = setTimeout (function () {
-					$('div#refresh').load ('index.php', 'update=true');
-				}, 1000);
-			});
-			</script>
-			<br>
-			<br>
-			<?php
-				if($row['status'] == 0){?>
-				<div class="led_img">
-					<img id="contest_img" src="led_off.png" width="100%" height="100%">
-				</div>
-			<?php	
-				}
-				else{ ?>
-				<div class="led_img">
-					<img id="contest_img" src="led_on.png" width="100%" height="100%">
-				</div>
-			<?php
-				}
-			?>
-			
-				
-				
-				
-			</div>
-				
-			<div class="col_3">
-			</div>
-		</div>
+        </main>
+        <footer>
 
-		<div class="col_3">
-		</div>
-	</div>
-</body>
-</html>
-
+        </footer>
+    </body>
 </html>
