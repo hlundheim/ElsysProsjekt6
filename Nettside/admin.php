@@ -9,8 +9,6 @@ $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
-
-
 if (isset($_POST['toggle_LED'])) {
 	$sql = "SELECT * FROM sensor;";
 	$result   = mysqli_query($conn, $sql);
@@ -28,7 +26,6 @@ if (isset($_POST['toggle_LED'])) {
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
 $row  = mysqli_fetch_assoc($result);	
-
 ?>
 
 
