@@ -13,25 +13,8 @@ if (isset($_POST['toggle_LED'])) {
 	$sql = "SELECT * FROM sensor;";
 	$result   = mysqli_query($conn, $sql);
 	$row  = mysqli_fetch_assoc($result);
-	
-	if($row['status'] == 0){
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 1 WHERE id = 1;");		
-	}		
-	else{
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 0 WHERE id = 1;");		
-	}
+	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
 }
-
-if (isset($_POST['red_LED'])) {
-	$sql = "SELECT * FROM fargeEffekter;";
-	$result   = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_assoc($result);
-
-	$update = mysqli_query($conn, " Update fargeEffekter SET status = 1 WHERE id = 1;");		
-
-}
-
-
 
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
@@ -73,7 +56,7 @@ $row  = mysqli_fetch_assoc($result);
 			<section class="">
 				<?php echo '<h3 style="text-align: center;">The status of the LED is: '.$row['status'].'</h3>';?>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="toggle_LED" value="Slå på LED" />
+					<input id="submit_button" type="submit" name="toggle_LED" value="0" />
 				</form>
 
 				<script type="text/javascript">
@@ -105,13 +88,13 @@ $row  = mysqli_fetch_assoc($result);
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
 					<label>Rød</lable>		
-					<input id="submit_button" type="submit" name="red_LED" value="Rød" />
+					<input id="submit_button" type="submit" name="toggle_LED" value="1" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="green_LED" value="Grønn" />
+					<input id="submit_button" type="submit" name="toggle_LED" value="2" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="blue_LED" value="Blå" />
+					<input id="submit_button" type="submit" name="toggle_LED" value="3" />
 				</form>
 			</section>
 		</main>
