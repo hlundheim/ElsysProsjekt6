@@ -11,18 +11,18 @@ if (!$conn) {
 }
 
 
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
-	$result   = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_assoc($result);
+// if (isset($_POST['toggle_LED'])) {
+// 	$sql = "SELECT * FROM sensor;";
+// 	$result   = mysqli_query($conn, $sql);
+// 	$row  = mysqli_fetch_assoc($result);
 	
-	if($row['status'] == 0){
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 1 WHERE id = 1;");		
-	}		
-	else{
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 0 WHERE id = 1;");		
-	}
-}
+// 	if($row['status'] == 0){
+// 		$update = mysqli_query($conn, "UPDATE sensor SET status = 1 WHERE id = 1;");		
+// 	}		
+// 	else{
+// 		$update = mysqli_query($conn, "UPDATE sensor SET status = 0 WHERE id = 1;");		
+// 	}
+// }
 
 
 

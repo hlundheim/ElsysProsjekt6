@@ -22,16 +22,6 @@ if (isset($_POST['toggle_LED'])) {
 	}
 }
 
-if (isset($_POST['red_LED'])) {
-	$sql = "SELECT * FROM fargeEffekter;";
-	$result   = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_assoc($result);
-
-	$update = mysqli_query($conn, " Update fargeEffekter SET status = 1 WHERE id = 1;");		
-
-}
-
-
 
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
@@ -103,8 +93,7 @@ $row  = mysqli_fetch_assoc($result);
 			</section>
 			<h3>Velg farge på led:</h3>
 			<section id="valg">
-				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<label>Rød</lable>		
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
 					<input id="submit_button" type="submit" name="red_LED" value="Rød" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
