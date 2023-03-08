@@ -1,4 +1,5 @@
 <?php
+//database
 $servername = "localhost";
 $dBUsername = "id20381512_elsysprosjekt6";
 $dBPassword = "ohanaElsys66!";
@@ -9,22 +10,6 @@ $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
-
-
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
-	$result   = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_assoc($result);
-	
-	if($row['status'] == 0){
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 1 WHERE id = 1;");		
-	}		
-	else{
-		$update = mysqli_query($conn, "UPDATE sensor SET status = 0 WHERE id = 1;");		
-	}
-}
-
-
 
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
