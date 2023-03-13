@@ -18,7 +18,7 @@
         text-align: center;
     }
 
-    #submit_button{
+    #emoji_button{
         background-color: #D3B4DB; 
         color: #FFF; 
         font-weight: bold; 
@@ -30,7 +30,7 @@
         outline: none;
     }
 
-    #emoji{
+    #emoji_grid{
         width: 100%;
         margin-top: 2%;
         display: grid;
@@ -39,7 +39,7 @@
         /*margin-top: 100px;*/
     }
 
-    #valg{
+    #farge_grid{
         width: 100%;
         margin-top: 2%;
         display: grid;
@@ -48,31 +48,17 @@
         /*margin-top: 100px;*/
     }
 
+    #farge_button{
+        background-color: #643d9c; 
+        color: #FFF; 
+        font-weight: bold; 
+        font-size: 30; 
+        border-radius: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
  
-
-    .led_img{
-        height: 400px;		
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .col_3 {
-            width: 100%;
-        }
-        .wrapper{
-            width: 100%;
-            padding-top: 5px;
-        }
-        .led_img{
-            height: 300px;		
-            width: 80%;
-            margin-right: 10%;
-            margin-left: 10%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
 
 </style>

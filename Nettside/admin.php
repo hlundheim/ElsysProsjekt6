@@ -69,20 +69,6 @@ $row  = mysqli_fetch_assoc($result);
 
 				<br>
 				<br>
-				<!--<?php
-					if($row['status'] == 0){?>
-					<div class="led_img">
-						<img id="contest_img" src="led_off.png" width="100%" height="100%">
-					</div>
-					<?php	
-						}
-						else{ ?>
-						<div class="led_img">
-							<img id="contest_img" src="led_on.png" width="100%" height="100%">
-						</div>
-					<?php
-						}
-				?>-->
 			</section>
 			<h3>Velg farge på led:</h3>
 			<section id="valg">
