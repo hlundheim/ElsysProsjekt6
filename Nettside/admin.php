@@ -19,6 +19,10 @@ if (isset($_POST['toggle_LED'])) {
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
 $row  = mysqli_fetch_assoc($result);	
+
+$sql2 = "SELECT stemmer FROM stemme;";
+$result2   = mysqli_query($conn, $sql2);
+$row2  = mysqli_fetch_assoc($result2);	
 ?>
 
 
@@ -73,13 +77,16 @@ $row  = mysqli_fetch_assoc($result);
 			<h3>Velg farge på led:</h3>
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="1">Rød</button>	
+					<button id="submit_button" type="submit" name="toggle_LED" value="1">Rød</button>
+					<?php echo '<h3 style="text-align: center;">'.$row2[0].'</h3>';?>
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="2">Grønn</button>			
+					<button id="submit_button" type="submit" name="toggle_LED" value="2">Grønn</button>	
+					<?php echo '<h3 style="text-align: center;">'.$row2[1].'</h3>';?>		
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>				
+					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>
+					<?php echo '<h3 style="text-align: center;">'.$row2[2].'</h3>';?>			
 				</form>
 			</section>
 		</main>
