@@ -9,8 +9,8 @@
 #define led 2
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
-const char* ssid = "Cecilie";       
-const char* password = "12345678"; 
+const char* ssid = "OnePlus 5";       
+const char* password = "ohanaelsys6"; 
 float hype;
 float biggestHype = 0;
 String data_to_send = "";
@@ -108,6 +108,9 @@ void loop() {
   hype = getHype(a);
   if (hype > biggestHype) {
     biggestHype = hype;
+  }
+  for (int i = 0; i<NUM_LEDS;i++) {
+    leds[i] = CRGB(0, 0, 255 );
   }
   Serial.print(band_state);
   if(band_state == "LED_is_off") {
