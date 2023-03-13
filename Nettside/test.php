@@ -26,40 +26,7 @@
 
         </header>
         <main>
-        <h2>Stemme</h2>
-        <h3>Hva synes du om opptredenen?:</h3>
-        <section id="emoji_grid">
-				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
-                    <p id="first"></p>	
-				</form>
-                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
-                    <p id="first"></p>	
-				</form>
-                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
-                    <p id="first"></p>	
-				</form>
-                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
-                    <p id="first"></p>	
-				</form>
-                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
-                    <p id="first"></p>	
-				</form>
-		
-			<h3>Velg fargen du ønsker å se:</h3>
-			<section id="farge_grid">
-                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" rel="second" value="">Rosa + Hvit</button>
-                    <p id="second"></p>	
-				</form>
-
-			</section>
-
-            <script>
+        <script>
                 var dudes = document.querySelectorAll('.btn');
                 dudes = Array.prototype.slice.call( dudes );
 
@@ -109,6 +76,22 @@
                 }
 
             </script>
+
+
+        <h2>Stemme</h2>
+        <h3>Hva synes du om opptredenen?:</h3>
+        <section id="emoji_grid">		
+                <button id="emoji_button" type="submit" name="toggle_LED" rel="first" value="">&#128525;</button>
+                <p id="first"></p>	
+			<h3>Velg fargen du ønsker å se:</h3>
+			<section id="farge_grid">
+				<button id="farge_button" type="submit" name="toggle_LED" rel="second" value="">Rosa + Hvit</button>
+                <p id="second"></p>	
+
+
+			</section>
+
+            
 		</main>
 	</body>
 </html>
