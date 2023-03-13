@@ -22,9 +22,6 @@ float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-
-
-
 void setup(void) {
   pinMode(led,OUTPUT);
   Serial.begin(115200);
@@ -105,44 +102,22 @@ void wifiHandler( void * pvParameters ){
   } 
 }
 void loop() {
-
-  /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
   hype = getHype(a);
+  
   if (hype > biggestHype) {
     biggestHype = hype;
   }
+
   for (int i = 0; i<NUM_LEDS;i++) {
-    leds[i] = CRGB(0, 0, 255 );
+    leds[i] = CRGB(color[0], color[1], color[2]);
   }
-  Serial.print(band_state);
-  if(band_state == "LED_is_off") {
-    FastLED.setBrightness(0);
-  } else {
-    FastLED.setBrightness(hype*255/biggestHype);
-  }
+
+  FastLED.setBrightness(hype*255/biggestHype);
   FastLED.show();
 
-  /*
-  if(response_body == "LED_is_off"){
-    digitalWrite(led, LOW);
-  }
-  else if(response_body == "LED_is_on"){
-    digitalWrite(led, HIGH);
-  }
-  */
-  
-  /*
-  Serial.print("Acceleration X: ");
-  Serial.print(a.acceleration.x);
-  Serial.print(", Y: ");
-  Serial.print(a.acceleration.y);
-  Serial.print(", Z: ");
-  Serial.print(a.acceleration.z);
-  Serial.println(" m/s^2");
-  */
-
+  Serial.print(band_state);
   Serial.print("HYPE:");
   Serial.println(hype);
   delay(50);

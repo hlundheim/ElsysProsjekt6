@@ -8,7 +8,6 @@ if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-// //Read the database
 if (isset($_POST['check_LED_status'])) {
 	$sql = "SELECT * FROM fargeEffekter WHERE id IN (SELECT status FROM sensor where id = 1)";
 	$result   = mysqli_query($conn, $sql);
