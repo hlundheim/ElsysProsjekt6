@@ -22,8 +22,6 @@ float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-<<<<<<< HEAD
-=======
 void getColor(string band_state, int& color){
   char *Sr = strtok(band_state, ",");
   color[0] = Sr.toInt(); 
@@ -34,7 +32,6 @@ void getColor(string band_state, int& color){
 }
 
 
->>>>>>> 3118728137d1fc5555823cb464bb78a92cc80eb4
 void setup(void) {
   pinMode(led,OUTPUT);
   Serial.begin(115200);
@@ -118,11 +115,11 @@ void loop() {
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
   hype = getHype(a);
-  
+
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-
+  getColor();
   for (int i = 0; i<NUM_LEDS;i++) {
     leds[i] = CRGB(color[0], color[1], color[2]);
   }
