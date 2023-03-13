@@ -9,18 +9,32 @@
 #define led 2
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
-const char* ssid = "Cecilie";       
-const char* password = "12345678"; 
+const char* ssid = "OnePlus 5";       
+const char* password = "ohanaelsys6"; 
 float hype;
 float biggestHype = 0;
 String data_to_send = "";
 String band_state = "";
 TaskHandle_t wifi;
+int color[3];
 
 float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
+<<<<<<< HEAD
+=======
+void getColor(string band_state, int& color){
+  char *Sr = strtok(band_state, ",");
+  color[0] = Sr.toInt(); 
+  char *Sg = strtok(NULL, ",");
+  color[1] = Sg.toInt(); 
+  char *Sb = strtok(NULL, ",");
+  color[2] = Sb.toInt(); 
+}
+
+
+>>>>>>> 3118728137d1fc5555823cb464bb78a92cc80eb4
 void setup(void) {
   pinMode(led,OUTPUT);
   Serial.begin(115200);
@@ -101,41 +115,22 @@ void wifiHandler( void * pvParameters ){
   } 
 }
 void loop() {
-
-  /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
   hype = getHype(a);
+  
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-  Serial.print(band_state);
-  if(band_state == "LED_is_off") {
-    FastLED.setBrightness(0);
-  } else {
-    FastLED.setBrightness(hype*255/biggestHype);
+
+  for (int i = 0; i<NUM_LEDS;i++) {
+    leds[i] = CRGB(color[0], color[1], color[2]);
   }
+
+  FastLED.setBrightness(hype*255/biggestHype);
   FastLED.show();
 
-  /*
-  if(response_body == "LED_is_off"){
-    digitalWrite(led, LOW);
-  }
-  else if(response_body == "LED_is_on"){
-    digitalWrite(led, HIGH);
-  }
-  */
-  
-  /*
-  Serial.print("Acceleration X: ");
-  Serial.print(a.acceleration.x);
-  Serial.print(", Y: ");
-  Serial.print(a.acceleration.y);
-  Serial.print(", Z: ");
-  Serial.print(a.acceleration.z);
-  Serial.println(" m/s^2");
-  */
-
+  Serial.print(band_state);
   Serial.print("HYPE:");
   Serial.println(hype);
   delay(50);
