@@ -9,8 +9,8 @@
 #define led 2
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
-const char* ssid = "OnePlus 5";       
-const char* password = "ohanaelsys6"; 
+const char* ssid = "Cecilie";       
+const char* password = "12345678"; 
 float hype;
 float biggestHype = 0;
 String data_to_send = "";
@@ -109,7 +109,7 @@ void loop() {
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-
+  Serial.print(band_state);
   if(band_state == "LED_is_off") {
     FastLED.setBrightness(0);
   } else {
