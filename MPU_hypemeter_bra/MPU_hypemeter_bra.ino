@@ -18,20 +18,19 @@ String band_state = "";
 TaskHandle_t wifi;
 int color[3];
 
+
 float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-void getColor(const String& band_state, int& color){
-  char *values = band_state.toCharArray();
-  char *Sr = strtok(values, ",");
-  color[0] = Sr.toInt(); 
-  char *Sg = strtok(NULL, ",");
-  color[1] = Sg.toInt(); 
-  char *Sb = strtok(NULL, ",");
-  color[2] = Sb.toInt(); 
+void getColor(){
+  String red1 = band_state.substring(0,2);
+  String green1 = band_state.substring(4,6);
+  String blue1 = band_state.substring(8,10);
+  color[0] = red1.toInt();
+  color[1] = green1.toInt();
+  color[2] = blue1.toInt();
 }
-
 
 void setup(void) {
   pinMode(led,OUTPUT);
@@ -120,7 +119,7 @@ void loop() {
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-  getColor();
+  getColor(band_state, color);
   for (int i = 0; i<NUM_LEDS;i++) {
     leds[i] = CRGB(color[0], color[1], color[2]);
   }
