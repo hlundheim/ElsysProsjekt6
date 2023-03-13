@@ -23,8 +23,13 @@ float getHype(sensors_event_t a){
 }
 
 void getColor(const String& band_state, int& color){
+<<<<<<< HEAD
   String values = band_state;
   String Sr = strtok(values, ",");
+=======
+  char *values = band_state.toCharArray();
+  char *Sr = strtok(values, ",");
+>>>>>>> d0b6800e31f4504ca95b7f57e15fdc7f800ce23b
   color[0] = Sr.toInt(); 
   String Sg = strtok(NULL, ",");
   color[1] = Sg.toInt(); 
