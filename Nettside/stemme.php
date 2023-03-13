@@ -19,12 +19,11 @@ $row  = mysqli_fetch_assoc($result);
 
 <html>
     <head>
+        <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="cssfiler/admin.css">-->
         <?php include("style.php")?>
-        <?php include("index-style.php")?>
+        <?php include("stemme-style.php")?>
     </head>
     <body>
         <header>
@@ -43,13 +42,53 @@ $row  = mysqli_fetch_assoc($result);
 						</nav>
 					</section>
 			</section>
+
         </header>
         <main>
+        <h2>Stemme</h2>
+        <h3>Hva synes du om opptredenen?:</h3>
+        <section id="emoji_grid">
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128525;</button>
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128540;</button>
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128559;</button>
+				</form>
+                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128564;</button>	
+				</form>
+                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128533; </button>	
+				</form>
 
+			</section>
+				<script type="text/javascript">
+					$(document).ready (function () {
+						var updater = setTimeout (function () {
+							$('div#refresh').load ('admin.php', 'update=true');
+						}, 1000);
+					});
+				</script>
+			</section>
 
-        </main>
-        <footer>
-
-        </footer>
-    </body>
+			<h3>Velg fargen du ønsker å se:</h3>
+			<section id="farge_grid">
+                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Rosa + Hvit</button>	
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Rød + Oransje</button>			
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Blå + Grønn</button>				
+				</form>
+                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Regnbue</button>				
+				</form>
+			</section>
+		</main>
+	</body>
 </html>

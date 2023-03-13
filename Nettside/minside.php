@@ -22,7 +22,7 @@ $row  = mysqli_fetch_assoc($result);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php include("style.php")?>
-        <?php include("index-style.php")?>
+        <?php include("minside-style.php")?>
     </head>
     <body>
         <header>
@@ -43,10 +43,7 @@ $row  = mysqli_fetch_assoc($result);
 			</section>
         </header>
         <main>
-            <section>
-                <img id="forside" src="https://gfx.nrk.no/qSeb9K7ydZWQrLgY45w_rwdXUl171OjJ3CM_QVTxhJhg" alt="">
-                <?php echo '<a class="bildetekst" href="minside.php">LOGG INN</a>';?>
-            </section>
+
 
         </main>
         <footer>
