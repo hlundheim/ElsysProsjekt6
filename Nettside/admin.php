@@ -56,7 +56,7 @@ $row  = mysqli_fetch_assoc($result);
 			<section class="">
 				<?php echo '<h3 style="text-align: center;">The status of the LED is: '.$row['status'].'</h3>';?>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="toggle_LED" value="0" />
+					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå på LED</button>	
 				</form>
 
 				<script type="text/javascript">
@@ -87,14 +87,13 @@ $row  = mysqli_fetch_assoc($result);
 			<h3>Velg farge på led:</h3>
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<label>Rød</lable>		
-					<input id="submit_button" type="submit" name="toggle_LED" value="1" />
+					<button id="submit_button" type="submit" name="toggle_LED" value="1">Rød</button>	
 				</form>
-				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="toggle_LED" value="2" />
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
+					<button id="submit_button" type="submit" name="toggle_LED" value="2">Grønn</button>			
 				</form>
-				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="toggle_LED" value="3" />
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>				
 				</form>
 			</section>
 		</main>
