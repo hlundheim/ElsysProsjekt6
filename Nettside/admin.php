@@ -44,7 +44,7 @@ $row  = mysqli_fetch_assoc($result);
 					<nav>
 						<?php echo '<a href="index.php">Hjem</a>';?>
 						<?php echo '<a href="stemme.php">Stemme</a>';?>
-						<?php echo '<a href="minside.php">Min Side</a>';?>
+						<?php echo '<a href="test.php">Min Side</a>';?>
 						<?php echo '<a href="admin.php">Admin</a>';?>
 					</nav>
 				</section>
