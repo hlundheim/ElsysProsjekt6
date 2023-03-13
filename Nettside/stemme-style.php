@@ -43,7 +43,7 @@
         width: 100%;
         margin-top: 2%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 30px;
         /*margin-top: 100px;*/
     }

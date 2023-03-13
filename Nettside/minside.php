@@ -43,10 +43,7 @@ $row  = mysqli_fetch_assoc($result);
 			</section>
         </header>
         <main>
-            <section>
-                <img id="forside" src="https://gfx.nrk.no/qSeb9K7ydZWQrLgY45w_rwdXUl171OjJ3CM_QVTxhJhg" alt="">
-                <?php echo '<a class="bildetekst" href="minside.php">LOGG INN</a>';?>
-            </section>
+
 
         </main>
         <footer>

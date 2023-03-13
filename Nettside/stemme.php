@@ -77,13 +77,16 @@ $row  = mysqli_fetch_assoc($result);
 			<h3>Velg fargen du ønsker å se:</h3>
 			<section id="farge_grid">
                 <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="1">Rød</button>	
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Rosa + Hvit</button>	
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="2">Grønn</button>			
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Rød + Oransje</button>			
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="farge_button" type="submit" name="toggle_LED" value="3">Blå</button>				
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Blå + Grønn</button>				
+				</form>
+                <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="farge_button" type="submit" name="toggle_LED" value="">Regnbue</button>				
 				</form>
 			</section>
 		</main>
