@@ -27,9 +27,9 @@ void getColor(){
   String red1 = band_state.substring(0,2);
   String green1 = band_state.substring(4,6);
   String blue1 = band_state.substring(8,10);
-  color[0] = red1.toInt();
-  color[1] = green1.toInt();
-  color[2] = blue1.toInt();
+  color[0] = red1.toInt(); 
+  color[1] = green1.toInt(); 
+  color[2] = blue1.toInt(); 
 }
 
 void setup(void) {
@@ -119,7 +119,7 @@ void loop() {
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-  getColor(band_state, color);
+  getColor();
   for (int i = 0; i<NUM_LEDS;i++) {
     leds[i] = CRGB(color[0], color[1], color[2]);
   }
