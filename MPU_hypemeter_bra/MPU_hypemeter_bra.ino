@@ -16,10 +16,14 @@ float biggestHype = 0;
 String data_to_send = "";
 String band_state = "";
 TaskHandle_t wifi;
+int color[3];
 
 float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
+
+
+
 
 void setup(void) {
   pinMode(led,OUTPUT);
