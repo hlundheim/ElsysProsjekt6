@@ -48,22 +48,22 @@ $row  = mysqli_fetch_assoc($result);
         </header>
         <main>
         <h2>Stemme</h2>
-        <h3>Hva synes du om opptredenen?:</h3>
+        <h3>Hva synes du om opptredenen?</h3>
         <section id="emoji">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="red_LED" value="&#128525;" />
+					<input id="emoji_button" type="submit" name="red_LED" value="&#128525;" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="green_LED" value="&#128540;" />
+					<input id="emoji_button" type="submit" name="green_LED" value="&#128540;" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="blue_LED" value="&#128559;" />
+					<input id="emoji_button" type="submit" name="blue_LED" value="&#128559;" />
 				</form>
                 <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="blue_LED" value=" &#128564;" />
+					<input id="emoji_button" type="submit" name="blue_LED" value=" &#128564;" />
 				</form>
                 <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="blue_LED" value="&#128533;" />
+					<input id="emoji_button" type="submit" name="blue_LED" value="&#128533;" />
 				</form>
 			</section>
         
@@ -96,13 +96,13 @@ $row  = mysqli_fetch_assoc($result);
 			<h3>Velg fargen du ønsker å se:</h3>
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="red_LED" value="Rød" />
+					<input id="sfarge_button" type="submit" name="red_LED" value="Rød" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="green_LED" value="Grønn" />
+					<input id="farge_button" type="submit" name="green_LED" value="Grønn" />
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<input id="submit_button" type="submit" name="blue_LED" value="Blå" />
+					<input id="farge_button" type="submit" name="blue_LED" value="Blå" />
 				</form>
 			</section>
 		</main>
