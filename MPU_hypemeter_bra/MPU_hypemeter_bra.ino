@@ -22,10 +22,9 @@ float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-<<<<<<< HEAD
-=======
-void getColor(string band_state, int& color){
-  char *Sr = strtok(band_state, ",");
+void getColor(const string& band_state, int& color){
+  string values = band_state;
+  char *Sr = strtok(values, ",");
   color[0] = Sr.toInt(); 
   char *Sg = strtok(NULL, ",");
   color[1] = Sg.toInt(); 
@@ -34,7 +33,6 @@ void getColor(string band_state, int& color){
 }
 
 
->>>>>>> 3118728137d1fc5555823cb464bb78a92cc80eb4
 void setup(void) {
   pinMode(led,OUTPUT);
   Serial.begin(115200);
