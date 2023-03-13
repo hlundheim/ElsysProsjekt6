@@ -116,11 +116,11 @@ void loop() {
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
   hype = getHype(a);
-  
+
   if (hype > biggestHype) {
     biggestHype = hype;
   }
-
+  getColor();
   for (int i = 0; i<NUM_LEDS;i++) {
     leds[i] = CRGB(color[0], color[1], color[2]);
   }

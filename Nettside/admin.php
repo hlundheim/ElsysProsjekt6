@@ -9,6 +9,12 @@ $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
+if (isset($_POST['toggle_LED'])) {
+	$sql = "SELECT * FROM sensor;";
+	$result   = mysqli_query($conn, $sql);
+	$row  = mysqli_fetch_assoc($result);
+	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
+}
 
 $sql = "SELECT * FROM sensor;";
 $result   = mysqli_query($conn, $sql);
@@ -38,7 +44,7 @@ $row  = mysqli_fetch_assoc($result);
 					<nav>
 						<?php echo '<a href="index.php">Hjem</a>';?>
 						<?php echo '<a href="stemme.php">Stemme</a>';?>
-						<?php echo '<a href="minside.php">Min Side</a>';?>
+						<?php echo '<a href="test.php">Min Side</a>';?>
 						<?php echo '<a href="admin.php">Admin</a>';?>
 					</nav>
 				</section>
