@@ -22,7 +22,14 @@ float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-
+void getColor(string band_state, int& color){
+  char *Sr = strtok(band_state, ",");
+  color[0] = Sr.toInt(); 
+  char *Sg = strtok(NULL, ",");
+  color[1] = Sg.toInt(); 
+  char *Sb = strtok(NULL, ",");
+  color[2] = Sb.toInt(); 
+}
 
 
 void setup(void) {
