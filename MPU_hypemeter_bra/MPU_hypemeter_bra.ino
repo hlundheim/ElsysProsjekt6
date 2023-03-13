@@ -14,7 +14,7 @@ const char* password = "ohanaelsys6";
 float hype;
 float biggestHype = 0;
 String data_to_send = "";
-String band_state = "";
+String band_state = "255,0,255";
 TaskHandle_t wifi;
 int color[3];
 
@@ -22,19 +22,8 @@ float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
-void getColor(const String& band_state, int& color){
-<<<<<<< HEAD
-  String values = band_state;
-  String Sr = strtok(values, ",");
-=======
-  char *values = band_state.toCharArray();
-  char *Sr = strtok(values, ",");
->>>>>>> d0b6800e31f4504ca95b7f57e15fdc7f800ce23b
-  color[0] = Sr.toInt(); 
-  String Sg = strtok(NULL, ",");
-  color[1] = Sg.toInt(); 
-  String Sb = strtok(NULL, ",");
-  color[2] = Sb.toInt(); 
+void getColor(){
+
 }
 
 
