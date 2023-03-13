@@ -61,7 +61,7 @@ $row  = mysqli_fetch_assoc($result);
                     <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128533;</button>	
 				</form>
                 <form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128533;</button>	
+                    <button id="emoji_button" type="submit" name="toggle_LED" value="">&#128564;</button>	
 				</form>
 
 			</section>
