@@ -18,14 +18,19 @@ String band_state = "255,0,255";
 TaskHandle_t wifi;
 int color[3];
 
+
 float getHype(sensors_event_t a){
   return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9);
 }
 
 void getColor(){
-
+  String red1 = band_state.substring(0,2);
+  String green1 = band_state.substring(4,6);
+  String blue1 = band_state.substring(8,10);
+  color[0] = red1.toInt(); 
+  color[1] = green1.toInt(); 
+  color[2] = blue1.toInt(); 
 }
-
 
 void setup(void) {
   pinMode(led,OUTPUT);
