@@ -7,6 +7,10 @@
 #define LED_PIN 15
 #define NUM_LEDS 10
 #define led 2
+#define EN 27
+#define VIB 32
+#define ENV 25
+int noiseLevel = 0;
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
 const char* ssid = "OnePlus 5";       
@@ -14,7 +18,7 @@ const char* password = "ohanaelsys6";
 float hype;
 float biggestHype = 0;
 String data_to_send = "";
-String band_state = "255,0,255";
+String band_state = "255,000,255";
 TaskHandle_t wifi;
 int color[3];
 
@@ -33,6 +37,9 @@ void getColor(){
 }
 
 void setup(void) {
+  pinMode(EN, OUTPUT);
+  pinMode(VIB, OUTPUT);
+  pinMode(ENV, INPUT);
   pinMode(led,OUTPUT);
   Serial.begin(115200);
   Serial.println("ESP test!");
@@ -112,6 +119,15 @@ void wifiHandler( void * pvParameters ){
   } 
 }
 void loop() {
+  digitalWrite(EN, HIGH);
+  noiseLevel = analogRead(ENV);
+
+  if(noiseLevel > 200) {
+    analogWrite(VIB, noiseLevel/10);
+  } else {
+    analogWrite(VIB, 0);
+  }
+  
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
   hype = getHype(a);
@@ -128,7 +144,17 @@ void loop() {
   FastLED.show();
 
   Serial.print(band_state);
-  Serial.print("HYPE:");
+  Serial.print(" HYPE:");
   Serial.println(hype);
+  Serial.print("Acceleration X: ");
+  Serial.print(a.acceleration.x);
+  Serial.print(", Y: ");
+  Serial.print(a.acceleration.y);
+  Serial.print(", Z: ");
+  Serial.print(a.acceleration.z);
+  Serial.println(" m/s^2");
+  Serial.print("noiseLevel");
+  Serial.println(noiseLevel);
   delay(50);
+  
 }
