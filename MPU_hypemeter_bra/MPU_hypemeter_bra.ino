@@ -7,9 +7,9 @@
 #define LED_PIN 15
 #define NUM_LEDS 10
 #define led 2
-#define EN 27
+#define EN 23
 #define VIB 32
-#define ENV 25
+#define ENV 33
 int noiseLevel = 0;
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
@@ -42,8 +42,9 @@ void setup(void) {
   pinMode(ENV, INPUT);
   pinMode(led,OUTPUT);
   Serial.begin(115200);
+  
   Serial.println("ESP test!");
-
+  
   WiFi.begin(ssid, password);             //Start wifi connection
   Serial.print("Connecting...");
   while (WiFi.status() != WL_CONNECTED) { //Check for the connection
@@ -52,7 +53,8 @@ void setup(void) {
   }
   Serial.print("Connected, my IP: ");
   Serial.println(WiFi.localIP());
-
+  
+  
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
     while (1) {
@@ -61,7 +63,7 @@ void setup(void) {
   }
   Serial.println("MPU funker");
   Serial.println("");
-
+  
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
   FastLED.setMaxPowerInVoltsAndMilliamps(3, 300);
   FastLED.clear();
@@ -70,13 +72,14 @@ void setup(void) {
   leds[i] = CRGB(0, 0, 255 );
   }
     xTaskCreatePinnedToCore(
-      wifiHandler,   /* Task function. */
-      "wifi",     /* name of task. */
-      10000,       /* Stack size of task */
-      NULL,        /* parameter of the task */
-      1,           /* priority of the task */
-      &wifi,      /* Task handle to keep track of created task */
-      0);          /* pin task to core 0 */   
+      wifiHandler,   // Task function. 
+      "wifi",     // name of task. 
+      10000,       // Stack size of task 
+      NULL,        // parameter of the task 
+      1,           // priority of the task 
+      &wifi,      // Task handle to keep track of created task 
+      0);          // pin task to core 0 
+      
 }
 
 void wifiHandler( void * pvParameters ){
@@ -118,15 +121,12 @@ void wifiHandler( void * pvParameters ){
     delay(500);
   } 
 }
+
+
 void loop() {
   digitalWrite(EN, HIGH);
   noiseLevel = analogRead(ENV);
-
-  if(noiseLevel > 200) {
-    analogWrite(VIB, noiseLevel/10);
-  } else {
-    analogWrite(VIB, 0);
-  }
+  analogWrite(VIB, noiseLevel/5);
   
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
