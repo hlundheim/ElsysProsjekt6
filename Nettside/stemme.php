@@ -18,10 +18,6 @@ if (isset($_POST['toggle_LED'])) {
 	$update = mysqli_query($conn, "UPDATE stemme SET stemmer = stemmer + 1  WHERE id = '".$_POST['toggle_LED']."';");
 }
 
-$sql = "SELECT * FROM sensor;";
-$result   = mysqli_query($conn, $sql);
-$row  = mysqli_fetch_assoc($result);	
-
 ?>
 
 <html>

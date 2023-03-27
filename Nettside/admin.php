@@ -16,9 +16,10 @@ if (isset($_POST['toggle_LED'])) {
 	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
 }
 
-$sql = "SELECT * FROM sensor;";
-$result   = mysqli_query($conn, $sql);
-$row  = mysqli_fetch_assoc($result);	
+if (isset($_POST['reset_stemmer'])) {
+	$sql = "UPDATE stemme SET stemmer = 0;";
+	$update = mysqli_query($conn, $sql);
+}
 
 $sql2 = "SELECT stemmer FROM stemme;";
 $result2  = mysqli_query($conn, $sql2);
@@ -26,6 +27,10 @@ $stemmer = array();
 while ($row = mysqli_fetch_assoc($result2)) {
 	array_push($stemmer, $row['stemmer']);
 }
+
+$sql3 = "SELECT navn FROM fargeEffekter WHERE id IN (SELECT status FROM sensor where id = 1);";
+$result3   = mysqli_query($conn, $sql3);
+$navn  = mysqli_fetch_assoc($result3);	
 ?>
 
 
@@ -61,7 +66,7 @@ while ($row = mysqli_fetch_assoc($result2)) {
 		</header>
 		<main>
 			<h2>Admin Siden</h2>
-			<?php echo '<h3 style="text-align: center;">'Nåværende fargeeffekt: .$row2[$name].'</h3>';?>
+			<?php echo '<h3 style="text-align: center;">Nåværende fargeeffekt: '.$navn['navn'].'</h3>';?>
 			<section id="grid-admin">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
 					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå av LED</button>	

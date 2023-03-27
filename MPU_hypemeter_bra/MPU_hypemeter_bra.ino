@@ -21,6 +21,11 @@ String data_to_send = "";
 String band_state = "255,000,255";
 TaskHandle_t wifi;
 int color[3];
+int color2[3];
+bool multiColor;
+bool alternating;
+bool looping;
+bool rainbow;
 
 
 float getHype(sensors_event_t a){
@@ -31,9 +36,18 @@ void getColor(){
   String red1 = band_state.substring(0,2);
   String green1 = band_state.substring(4,6);
   String blue1 = band_state.substring(8,10);
+  multiColor = band_state.substring(12,12).toInt();
+  String red2 = band_state.substring(14,16);
+  String green2 = band_state.substring(18,20);
+  String blue2 = band_state.substring(22,24);
+  alternating = band_state.substring(26,26).toInt();
+  rainbow = band_state.substring(28,28).toInt();
   color[0] = red1.toInt(); 
   color[1] = green1.toInt(); 
   color[2] = blue1.toInt(); 
+  color2[0] = red2.toInt(); 
+  color2[1] = green2.toInt(); 
+  color2[2] = blue2.toInt(); 
 }
 
 void setup(void) {
@@ -137,8 +151,17 @@ void loop() {
     biggestHype = hype;
   }
   getColor();
-  for (int i = 0; i<NUM_LEDS;i++) {
+  if(rainbow) {
+    
+  }
+  
+  for (int i = 0; i<NUM_LEDS;i=i+2) {
     leds[i] = CRGB(color[0], color[1], color[2]);
+  }
+  if(multicolor) {
+    for (int i = 1; i<NUM_LEDS-1;i=i+2) {
+    leds[i] = CRGB(color[0], color[1], color[2]);
+    }
   }
 
   FastLED.setBrightness(hype*255/biggestHype);
