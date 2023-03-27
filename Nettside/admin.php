@@ -51,8 +51,8 @@ while ($row = mysqli_fetch_assoc($result2)) {
 					<nav>
 						<?php echo '<a href="index.php">Hjem</a>';?>
 						<?php echo '<a href="stemme.php">Stemme</a>';?>
-						<?php echo '<a href="gif.php">Gifting</a>';?>
-						<?php echo '<a href="test.php">Min Side</a>';?>
+						<?php echo '<a href="gif.php">Visning</a>';?>
+						<?php echo '<a href="minside.php">Min Side</a>';?>
 						<?php echo '<a href="admin.php">Admin</a>';?>
 					</nav>
 				</section>
@@ -61,10 +61,12 @@ while ($row = mysqli_fetch_assoc($result2)) {
 		</header>
 		<main>
 			<h2>Admin Siden</h2>
-			<section class="">
-				<?php echo '<h3 style="text-align: center;">The status of the LED is: '.$row['status'].'</h3>';?>
+			<section id="grid-admin">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå på LED</button>	
+					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå av LED</button>	
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
+					<button id="submit_button" type="submit" name="reset_stemmer" value="10">Reset</button>	
 				</form>
 
 				<script type="text/javascript">
@@ -91,6 +93,31 @@ while ($row = mysqli_fetch_assoc($result2)) {
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
 					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[2].'</h3>';?>			
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="submit_button" type="submit" name="toggle_LED" value="4">Lilla</button>
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[3].'</h3>';?>			
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="submit_button" type="submit" name="toggle_LED" value="5">Oransje</button>
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[4].'</h3>';?>			
+				</form>
+
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="submit_button" type="submit" name="toggle_LED" value="9">Regnbue</button>	
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[8].'</h3>';?>			
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
+					<button id="submit_button" type="submit" name="toggle_LED" value="6">Rosa + Hvit</button>	
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[5].'</h3>';?>
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
+					<button id="submit_button" type="submit" name="toggle_LED" value="7">Rød + Oransje</button>
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[6].'</h3>';?>			
+				</form>
+				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
+					<button id="submit_button" type="submit" name="toggle_LED" value="8">Blå + Grønn</button>	
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[7].'</h3>';?>			
 				</form>
 			</section>
 		</main>

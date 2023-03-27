@@ -35,7 +35,7 @@
         background-color: #643d9c; 
         color: #FFF; 
         font-weight: bold; 
-        font-size: 30; 
+        font-size: 20; 
         border-radius: 15px;
         text-align: center;
         cursor: pointer;
@@ -49,14 +49,19 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 30px;
-        /*margin-top: 100px;*/
+
     }
-    .led_img{
-        height: 400px;		
+
+    #grid-admin{
         width: 100%;
-        object-fit: cover;
-        object-position: center;
+        margin-top: 2%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+
     }
+
+
 
     @media only screen and (max-width: 600px) {
         .col_3 {

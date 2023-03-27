@@ -52,7 +52,7 @@
         background-color: #643d9c; 
         color: #FFF; 
         font-weight: bold; 
-        font-size: 30; 
+        font-size: 20; 
         border-radius: 15px;
         text-align: center;
         cursor: pointer;
