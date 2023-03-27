@@ -47,7 +47,7 @@ if (!$conn) {
                     <label for="psw"><b>Passord</b></label>
                     <input type="password" placeholder="Skriv inn Passord" name="psw" required>
 
-                    <?php echo '<a href="minside2.php"> <button type="submit">Logg inn</button> </a>';?>
+                    <?php echo '<a href="stemme.php"> <button type="submit">Logg inn</button> </a>';?>
                     
                     <label>
                     <input type="checkbox" checked="checked" name="remember"> Husk meg
