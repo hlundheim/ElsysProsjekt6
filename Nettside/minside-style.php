@@ -1,11 +1,15 @@
 <style>
-    form {
+    /*form {
         border: 3px solid #f1f1f1;
+    }*/
+
+    main{
+        width: 70%;
     }
 
     /* Full-width inputs */
     input[type=text], input[type=password] {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -24,6 +28,7 @@
         width: 100%;
     }
 
+
     /* Add a hover effect for buttons */
         button:hover {
         opacity: 0.8;
@@ -31,14 +36,18 @@
 
     /* Extra style for the cancel button (red) */
     .cancelbtn {
-        width: auto;
+        width: 20%;
         padding: 10px 18px;
         background-color: #f44336;
+        
     }
 
     /* Add padding to containers */
     .container {
+        display: grid;
+        grid-template-columns: 1fr;
         padding: 16px;
+        justify-items: center;
     }
 
     /* The "Forgot password" text */

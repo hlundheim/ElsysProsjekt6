@@ -10,11 +10,6 @@ if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-
-$sql = "SELECT * FROM sensor;";
-$result   = mysqli_query($conn, $sql);
-$row  = mysqli_fetch_assoc($result);	
-
 ?>
 
 <html>
@@ -44,25 +39,25 @@ $row  = mysqli_fetch_assoc($result);
 			</section>
         </header>
         <main>
-            <form action="minside.php" method="post">
-                <div class="container">
+            <!--<form action="minside.php" method="post"></form>-->
+            <div class="container">
                     <label for="uname"><b>Brukernavn</b></label>
                     <input type="text" placeholder="Skriv inn Brukernavn" name="uname" required>
 
                     <label for="psw"><b>Passord</b></label>
                     <input type="password" placeholder="Skriv inn Passord" name="psw" required>
 
-                    <button type="submit">Logg inn</button>
+                    <?php echo '<a href="minside2.php"> <button type="submit">Logg inn</button> </a>';?>
+                    
                     <label>
                     <input type="checkbox" checked="checked" name="remember"> Husk meg
                     </label>
                 </div>
 
-                <div class="container" style="background-color:#f1f1f1">
+                <div class="container">
                     <button type="button" class="cancelbtn">Avbryt</button>
                     <span class="psw">Glemt <a href="#">passord?</a></span>
                 </div>
-            </form>
 
 
         </main>

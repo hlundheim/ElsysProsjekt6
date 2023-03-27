@@ -10,13 +10,6 @@ if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
-	$result   = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_assoc($result);
-	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
-}	
-
 ?>
 
 <html>
@@ -24,7 +17,7 @@ if (isset($_POST['toggle_LED'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php include("style.php")?>
-        <?php include("gif-style.php")?>
+        <?php include("minside2-style.php")?>
     </head>
     <body>
         <header>
@@ -39,27 +32,13 @@ if (isset($_POST['toggle_LED'])) {
 							<?php echo '<a href="index.php">Hjem</a>';?>
 							<?php echo '<a href="stemme.php">Stemme</a>';?>
                             <?php echo '<a href="gif.php">Visning</a>';?>
-							<?php echo '<a href="minside.php">Min Side</a>';?>
+							<?php echo '<a href="minside2.php">Min Side</a>';?>
 							<?php echo '<a href="admin.php">Admin</a>';?>
 						</nav>
 					</section>
 			</section>
         </header>
         <main>
-            <section id="grid-gif">
-                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show1" type="submit" name="toggle_LED" value="10"></button>
-				</form>
-                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show2" type="submit" name="toggle_LED" value="11"></button>
-				</form>
-                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show3" type="submit" name="toggle_LED" value="12"></button>
-				</form>
-
-            
-            </section>
-
 
         </main>
         <footer>
