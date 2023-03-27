@@ -61,6 +61,7 @@ while ($row = mysqli_fetch_assoc($result2)) {
 		</header>
 		<main>
 			<h2>Admin Siden</h2>
+			<?php echo '<h3 style="text-align: center;">'Nåværende fargeeffekt: .$row2[$name].'</h3>';?>
 			<section id="grid-admin">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
 					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå av LED</button>	
