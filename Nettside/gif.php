@@ -36,7 +36,7 @@ $row  = mysqli_fetch_assoc($result);
 						<nav>
 							<?php echo '<a href="index.php">Hjem</a>';?>
 							<?php echo '<a href="stemme.php">Stemme</a>';?>
-                            <?php echo '<a href="gif.php">Gifting</a>';?>
+                            <?php echo '<a href="gif.php">Visning</a>';?>
 							<?php echo '<a href="minside.php">Min Side</a>';?>
 							<?php echo '<a href="admin.php">Admin</a>';?>
 						</nav>
@@ -45,6 +45,16 @@ $row  = mysqli_fetch_assoc($result);
         </header>
         <main>
             <section id="grid-gif">
+                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button  class="hoverable" id="show1" type="submit" name="toggle_LED" value=""></button>
+				</form>
+                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button  class="hoverable" id="show2" type="submit" name="toggle_LED" value=""></button>
+				</form>
+                <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
+                    <button  class="hoverable" id="show3" type="submit" name="toggle_LED" value=""></button>
+				</form>
+
             
             </section>
 
