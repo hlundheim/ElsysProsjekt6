@@ -14,5 +14,4 @@ if (isset($_POST['check_LED_status'])) {
 	$row  = mysqli_fetch_assoc($result);
 	echo strval($row['R1']).','.strval($row['G1']).','.strval($row['B1']);
 }	
-	
 ?>

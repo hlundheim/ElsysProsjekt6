@@ -7,9 +7,9 @@
 #define LED_PIN 15
 #define NUM_LEDS 10
 #define led 2
-#define EN 23
+#define EN 33
 #define VIB 32
-#define ENV 33
+#define ENV 34
 int noiseLevel = 0;
 CRGB leds[NUM_LEDS];
 Adafruit_MPU6050 mpu;
@@ -41,6 +41,7 @@ void setup(void) {
   pinMode(VIB, OUTPUT);
   pinMode(ENV, INPUT);
   pinMode(led,OUTPUT);
+  digitalWrite(EN, HIGH);
   Serial.begin(115200);
   
   Serial.println("ESP test!");
@@ -61,6 +62,7 @@ void setup(void) {
       delay(10);
     }
   }
+  
   Serial.println("MPU funker");
   Serial.println("");
   
@@ -124,7 +126,6 @@ void wifiHandler( void * pvParameters ){
 
 
 void loop() {
-  digitalWrite(EN, HIGH);
   noiseLevel = analogRead(ENV);
   analogWrite(VIB, noiseLevel/5);
   
@@ -155,6 +156,6 @@ void loop() {
   Serial.println(" m/s^2");
   Serial.print("noiseLevel");
   Serial.println(noiseLevel);
-  delay(50);
+  delay(30);
   
 }

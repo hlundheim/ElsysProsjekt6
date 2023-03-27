@@ -1,6 +1,6 @@
-#define EN 27
+#define EN 23
 #define VIB 32
-#define ENV 25
+#define ENV 34
 int NoiseLevel = 0;
 void setup() {
   // put your setup code here, to run once:
@@ -53,5 +53,6 @@ void loop() {
     analogWrite(VIB, 180);
   }
   
-  //Serial.println(NoiseLevel);
+  Serial.println(NoiseLevel);
+  delay(50);
 }

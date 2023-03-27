@@ -21,8 +21,11 @@ $result   = mysqli_query($conn, $sql);
 $row  = mysqli_fetch_assoc($result);	
 
 $sql2 = "SELECT stemmer FROM stemme;";
-$result2   = mysqli_query($conn, $sql2);
-$row2  = mysqli_fetch_assoc($result2);	
+$result2  = mysqli_query($conn, $sql2);
+$stemmer = array();
+while ($row = mysqli_fetch_assoc($result2)) {
+	array_push($stemmer, $row['stemmer']);
+}
 ?>
 
 
@@ -78,15 +81,15 @@ $row2  = mysqli_fetch_assoc($result2);
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
 					<button id="submit_button" type="submit" name="toggle_LED" value="1">Rød</button>
-					<?php echo '<h3 style="text-align: center;">'.$row2[0].'</h3>';?>
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[0].'</h3>';?>
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
 					<button id="submit_button" type="submit" name="toggle_LED" value="2">Grønn</button>	
-					<?php echo '<h3 style="text-align: center;">'.$row2[1].'</h3>';?>		
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[1].'</h3>';?>		
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
 					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>
-					<?php echo '<h3 style="text-align: center;">'.$row2[2].'</h3>';?>			
+					<?php echo '<h3 style="text-align: center;">'.$stemmer[2].'</h3>';?>			
 				</form>
 			</section>
 		</main>
