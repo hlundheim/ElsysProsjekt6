@@ -17,9 +17,6 @@
     }
 
     .hoverable {
-        /*display: inline-block;
-        width: 300px;
-        height: 170px;*/
         width: 450px;
         height: 250px;
         border: none !important;
@@ -51,6 +48,18 @@
 
     #show3:hover{
         background-image: url('https://media.giphy.com/media/SJbqcpAbEq4cobzGrI/giphy.gif');
+    }
+
+    @media (max-width: 800px){
+        #grid-gif{
+            grid-template-columns: 1fr;
+        }
+
+        .hoverable {
+            width: 350px;
+            height: 150px;
+        }
+
     }
 
 </style>

@@ -60,4 +60,40 @@
       z-index: 3;
       position: fixed;
   }
+
+  #mobil{
+    width: 100%;
+    background-color: #846e99;
+    opacity: 90%;
+    text-align: right;
+    box-sizing: border-box;
+    display: none;
+  }
+
+  @media (max-width: 800px){
+        main{
+            width: 90%;
+            margin-top: 150px;
+        }
+        #mobil{
+            display: block;
+            padding: 20px;
+        }
+
+        .gridcontainer{
+            width: 100%;
+            display: block;
+            text-align: center
+        }
+
+        nav{
+            flex-direction: column;
+        }
+        p{
+            font-size: 16px;
+        }
+        h1{
+            margin-left: 30px;
+        }
+    }
 </style>
