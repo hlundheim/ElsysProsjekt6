@@ -55,5 +55,16 @@
         float: right;
         padding-top: 16px;
     }
+
+    @media (max-width: 800px){
+        .cancelbtn {
+            width: 30%;
+        }
+        input[type=text], input[type=password] {
+            width: 65%;
+        }
+
+    }
+    
     
 </style>

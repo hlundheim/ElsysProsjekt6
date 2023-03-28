@@ -35,4 +35,13 @@
         text-align: center;
     }
 
+    @media (max-width: 800px){
+        .bildetekst{
+            font-size: 20px;
+        }
+
+    }
+
+
+
 </style>

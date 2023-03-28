@@ -63,22 +63,11 @@
 
 
 
-    @media only screen and (max-width: 600px) {
-        .col_3 {
-            width: 100%;
+    @media (max-width: 800px) {
+        #valg{
+            grid-template-columns: 1fr 1fr;
         }
-        .wrapper{
-            width: 100%;
-            padding-top: 5px;
-        }
-        .led_img{
-            height: 300px;		
-            width: 80%;
-            margin-right: 10%;
-            margin-left: 10%;
-            object-fit: cover;
-            object-position: center;
-        }
+        
     }
 
 </style>
