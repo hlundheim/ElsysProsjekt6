@@ -87,16 +87,16 @@ if (isset($_POST['toggle_LED'])) {
 			<h3>Velg fargen du ønsker å se:</h3>
 			<section id="farge_grid">
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="">Rosa + Hvit</button>	
+					<button id="farge_button" type="submit" name="toggle_LED" value="6">Rosa + Hvit</button>	
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="">Rød + Oransje</button>			
+					<button id="farge_button" type="submit" name="toggle_LED" value="7">Rød + Oransje</button>			
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="farge_button" type="submit" name="toggle_LED" value="">Blå + Grønn</button>				
+					<button id="farge_button" type="submit" name="toggle_LED" value="8">Blå + Grønn</button>				
 				</form>
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="farge_button" type="submit" name="toggle_LED" value="">Regnbue</button>				
+					<button id="farge_button" type="submit" name="toggle_LED" value="9">Regnbue</button>				
 				</form>
 			</section>
 		</main>
