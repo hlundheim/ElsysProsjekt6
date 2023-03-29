@@ -58,6 +58,16 @@
         cursor: pointer;
     }
 
+    @media (max-width: 800px){
+        #emoji_grid{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        #farge_grid{
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+
 
  
 
