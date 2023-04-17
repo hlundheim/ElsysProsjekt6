@@ -9,11 +9,11 @@ $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
+if (isset($_POST['update_status'])) {
+	$sql = "SELECT * FROM Status;";
 	$result   = mysqli_query($conn, $sql);
 	$row  = mysqli_fetch_assoc($result);
-	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
+	$update = mysqli_query($conn, "UPDATE Status SET status = '".$_POST['update_status']."' WHERE id = 1;");
 }
 
 if (isset($_POST['reset_stemmer'])) {
@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($result2)) {
 	array_push($stemmer, $row['stemmer']);
 }
 
-$sql3 = "SELECT navn FROM fargeEffekter WHERE id IN (SELECT status FROM sensor where id = 1);";
+$sql3 = "SELECT navn FROM fargeEffekter WHERE id IN (SELECT status FROM Status where id = 1);";
 $result3   = mysqli_query($conn, $sql3);
 $navn  = mysqli_fetch_assoc($result3);	
 ?>
@@ -75,7 +75,7 @@ $navn  = mysqli_fetch_assoc($result3);
 			<?php echo '<h3 style="text-align: center;">Nåværende fargeeffekt: '.$navn['navn'].'</h3>';?>
 			<section id="grid-admin">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<button id="submit_button" type="submit" name="toggle_LED" value="0">Slå av LED</button>	
+					<button id="submit_button" type="submit" name="update_status" value="0">Slå av LED</button>	
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
 					<button id="submit_button" type="submit" name="reset_stemmer" value="10">Reset</button>	
@@ -95,40 +95,40 @@ $navn  = mysqli_fetch_assoc($result3);
 			<h3>Velg farge på led:</h3>
 			<section id="valg">
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="1">Rød</button>
+					<button id="submit_button" type="submit" name="update_status" value="1">Rød</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[0].'</h3>';?>
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="2">Grønn</button>	
+					<button id="submit_button" type="submit" name="update_status" value="2">Grønn</button>	
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[1].'</h3>';?>		
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="3">Blå</button>
+					<button id="submit_button" type="submit" name="update_status" value="3">Blå</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[2].'</h3>';?>			
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="4">Lilla</button>
+					<button id="submit_button" type="submit" name="update_status" value="4">Lilla</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[3].'</h3>';?>			
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="5">Oransje</button>
+					<button id="submit_button" type="submit" name="update_status" value="5">Oransje</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[4].'</h3>';?>			
 				</form>
 
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="9">Regnbue</button>	
+					<button id="submit_button" type="submit" name="update_status" value="9">Regnbue</button>	
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[8].'</h3>';?>			
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="6">Rosa + Hvit</button>	
+					<button id="submit_button" type="submit" name="update_status" value="6">Rosa + Hvit</button>	
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[5].'</h3>';?>
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="submit_button" type="submit" name="toggle_LED" value="7">Rød + Oransje</button>
+					<button id="submit_button" type="submit" name="update_status" value="7">Rød + Oransje</button>
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[6].'</h3>';?>			
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="submit_button" type="submit" name="toggle_LED" value="8">Blå + Grønn</button>	
+					<button id="submit_button" type="submit" name="update_status" value="8">Blå + Grønn</button>	
 					<?php echo '<h3 style="text-align: center;">'.$stemmer[7].'</h3>';?>			
 				</form>
 			</section>

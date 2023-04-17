@@ -10,11 +10,11 @@ if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
+if (isset($_POST['update_status'])) {
+	$sql = "SELECT * FROM Status;";
 	$result   = mysqli_query($conn, $sql);
 	$row  = mysqli_fetch_assoc($result);
-	$update = mysqli_query($conn, "UPDATE sensor SET status = '".$_POST['toggle_LED']."' WHERE id = 1;");
+	$update = mysqli_query($conn, "UPDATE Status SET status = '".$_POST['update_status']."' WHERE id = 1;");
 }	
 
 ?>
@@ -54,13 +54,13 @@ if (isset($_POST['toggle_LED'])) {
         <main>
             <section id="grid-gif">
                 <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show1" type="submit" name="toggle_LED" value="10"></button>
+                    <button  class="hoverable" id="show1" type="submit" name="update_status" value="10"></button>
 				</form>
                 <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show2" type="submit" name="toggle_LED" value="11"></button>
+                    <button  class="hoverable" id="show2" type="submit" name="update_status" value="11"></button>
 				</form>
                 <form action="gif.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button  class="hoverable" id="show3" type="submit" name="toggle_LED" value="12"></button>
+                    <button  class="hoverable" id="show3" type="submit" name="update_status" value="12"></button>
 				</form>
 
             

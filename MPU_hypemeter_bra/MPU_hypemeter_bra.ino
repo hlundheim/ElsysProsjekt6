@@ -13,13 +13,13 @@ CRGB leds[numLeds];
 Adafruit_MPU6050 mpu;
 const char* ssid = "OnePlus 5";       
 const char* password = "ohanaelsys6"; 
-float hype;
+float hype = 0;
 const float baseHype = 5;
 float biggestHype = baseHype;
 String dataToSend = "";
 String effectData = "255,000,255,1,150,110,050,0,0,0";
 TaskHandle_t wifi;
-int color[3];
+int color1[3];
 int color2[3];
 bool multiColor;
 bool alternating;
@@ -31,7 +31,7 @@ unsigned long currentMillis;
 
 
 float getHype(sensors_event_t a){
-  return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9)/2 + hype/2;
+  return abs(sqrt(pow(a.acceleration.x,2) + pow(a.acceleration.y,2)+ pow(a.acceleration.z,2))-9.81)/2 + hype/2;
 }
 
 void getColor(){
@@ -45,9 +45,9 @@ void getColor(){
   alternating = effectData.substring(26,27).toInt();
   rainbow = effectData.substring(28,29).toInt();
   if(altFlag == 0) {
-    color[0] = red1.toInt(); 
-    color[1] = green1.toInt(); 
-    color[2] = blue1.toInt(); 
+    color1[0] = red1.toInt(); 
+    color1[1] = green1.toInt(); 
+    color1[2] = blue1.toInt(); 
     color2[0] = red2.toInt(); 
     color2[1] = green2.toInt(); 
     color2[2] = blue2.toInt();
@@ -58,12 +58,11 @@ void getColor(){
       color2[0] = red1.toInt(); 
       color2[1] = green1.toInt(); 
       color2[2] = blue1.toInt(); 
-      color[0] = red2.toInt(); 
-      color[1] = green2.toInt(); 
-      color[2] = blue2.toInt(); 
+      color1[0] = red2.toInt(); 
+      color1[1] = green2.toInt(); 
+      color1[2] = blue2.toInt(); 
       altFlag = 0;
   }
-
 }
 
 void setup(void) {
@@ -124,11 +123,11 @@ void wifiHandler( void * pvParameters ){
   for(;;){
       if(WiFi.status()== WL_CONNECTED){                
       HTTPClient http;  
-      dataToSend = "check_LED_status=1";   
+      dataRequest = "update_band";   
           
       http.begin("https://ohana6.000webhostapp.com/esp32_update.php");
       http.addHeader("Content-Type", "application/x-www-form-urlencoded");  
-      int responseCode = http.POST(dataToSend);                
+      int responseCode = http.POST(dataRequest);                
       if(responseCode > 0){
         Serial.println("HTTP code " + String(responseCode));                    
         if(responseCode == 200){                                                 
@@ -141,7 +140,7 @@ void wifiHandler( void * pvParameters ){
        Serial.print("Error sending POST, code: ");
        Serial.println(responseCode);
       }
-      http.end();                                                                 //End the connection
+      http.end();                                                               
     } else{
       Serial.println("WIFI connection error");
       delay(500);
@@ -171,7 +170,7 @@ void loop() {
   }
  
   for (int i = 0; i<numLeds;i++) {
-    leds[i] = CRGB(color[0], color[1], color[2]);
+    leds[i] = CRGB(color1[0], color1[1], color1[2]);
   }
   if(multiColor) {
     for (int i = 0; i<numLeds;i=i+2) {
@@ -182,21 +181,7 @@ void loop() {
   FastLED.setBrightness(30 + hype*225/biggestHype);
   FastLED.show();
 
-  /*Serial.println(effectData);
-  Serial.print("color1 ");
-  Serial.print("\t");
-  Serial.print(color[0]);
-  Serial.print("\t");
-  Serial.print(color[1]);
-  Serial.print("\t");
-  Serial.println(color[2]);
-  Serial.print("color2");
-  Serial.print("\t");
-  Serial.print(color2[0]);
-  Serial.print("\t");
-  Serial.print(color2[1]);
-  Serial.print("\t");
-  Serial.println(color2[2]); */
+  //Serial.println(effectData);
   Serial.print(" HYPE:");
   Serial.println(hype);
   // Serial.print("Acceleration X: ");

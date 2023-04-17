@@ -11,11 +11,11 @@ if (!$conn) {
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-if (isset($_POST['toggle_LED'])) {
-	$sql = "SELECT * FROM sensor;";
+if (isset($_POST['update_stemme'])) {
+	$sql = "SELECT * FROM Status;";
 	$result   = mysqli_query($conn, $sql);
 	$row  = mysqli_fetch_assoc($result);
-	$update = mysqli_query($conn, "UPDATE stemme SET stemmer = stemmer + 1  WHERE id = '".$_POST['toggle_LED']."';");
+	$update = mysqli_query($conn, "UPDATE stemme SET stemmer = stemmer + 1  WHERE id = '".$_POST['update_stemme']."';");
 }
 
 ?>
@@ -59,19 +59,19 @@ if (isset($_POST['toggle_LED'])) {
         <h3>Hva synes du om opptredenen?:</h3>
         <section id="emoji_grid">
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="3">&#128525;</button>
+                    <button id="emoji_button" type="submit" name="update_stemme" value="3">&#128525;</button>
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="2">&#128540;</button>
+                    <button id="emoji_button" type="submit" name="update_stemme" value="2">&#128540;</button>
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="5">&#128559;</button>
+                    <button id="emoji_button" type="submit" name="update_stemme" value="5">&#128559;</button>
 				</form>
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="4">&#128564;</button>	
+                    <button id="emoji_button" type="submit" name="update_stemme" value="4">&#128564;</button>	
 				</form>
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">			
-                    <button id="emoji_button" type="submit" name="toggle_LED" value="1">&#128533; </button>	
+                    <button id="emoji_button" type="submit" name="update_stemme" value="1">&#128533; </button>	
 				</form>
 
 			</section>
@@ -87,16 +87,16 @@ if (isset($_POST['toggle_LED'])) {
 			<h3>Velg fargen du ønsker å se:</h3>
 			<section id="farge_grid">
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="6">Rosa + Hvit</button>	
+					<button id="farge_button" type="submit" name="update_stemme" value="6">Rosa + Hvit</button>	
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="toggle_LED" value="7">Rød + Oransje</button>			
+					<button id="farge_button" type="submit" name="update_stemme" value="7">Rød + Oransje</button>			
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="farge_button" type="submit" name="toggle_LED" value="8">Blå + Grønn</button>				
+					<button id="farge_button" type="submit" name="update_stemme" value="8">Blå + Grønn</button>				
 				</form>
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">
-					<button id="farge_button" type="submit" name="toggle_LED" value="9">Regnbue</button>				
+					<button id="farge_button" type="submit" name="update_stemme" value="9">Regnbue</button>				
 				</form>
 			</section>
 		</main>
