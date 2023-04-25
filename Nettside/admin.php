@@ -78,7 +78,7 @@ $navn  = mysqli_fetch_assoc($result3);
 					<button id="submit_button" type="submit" name="update_status" value="0">Slå av LED</button>	
 				</form>
 				<form action="admin.php" method="post" id="LED" enctype="multipart/form-data">			
-					<button id="submit_button" type="submit" name="reset_stemmer" value="10">Reset</button>	
+					<button id="submit_button" type="submit" name="reset_stemmer">Reset</button>	
 				</form>
 
 				<script type="text/javascript">
