@@ -87,7 +87,7 @@ if (isset($_POST['update_stemme'])) {
 			<h3>Velg fargen du ønsker å se:</h3>
 			<section id="farge_grid">
                 <form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
-					<button id="farge_button" type="submit" name="update_stemme" value="6">Rosa + Hvit</button>	
+					<button id="farge_button" type="submit" name="update_stemme" value="6">Lilla</button>	
 				</form>
 				<form action="stemme.php" method="post" id="LED" enctype="multipart/form-data">	
 					<button id="farge_button" type="submit" name="update_stemme" value="7">Rød + Oransje</button>			
